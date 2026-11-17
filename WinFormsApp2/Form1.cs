@@ -3,7 +3,7 @@ namespace WinFormsApp2
     public partial class Form1 : Form
     {
         // Array of questions and answers
-        string[,] questions = new string[4, 2];
+        string[,] questions = new string[6, 2];
 
         // track current question
         int CurrentQuestion = 0;
@@ -37,6 +37,10 @@ namespace WinFormsApp2
             questions[2, 1] = "Chicken";
             questions[3, 0] = "What is the largest planet in our solar system?";
             questions[3, 1] = "Jupiter";
+            questions[4, 0] = "What is the biggest animal in the world?";
+            questions[4, 1] = "Blue Whale";
+            questions[5, 0] = "When was the first iPhone released?";
+            questions[5, 1] = "2007";
 
             // show 1st question on question label
             lblQuestion.Text = questions[0, 0];
@@ -51,6 +55,52 @@ namespace WinFormsApp2
         {
             lblMessage.Text = text;
             lblMessage.ForeColor = colour;
+
+        }
+
+        /// <summary>
+        /// calculate the percentage score
+        /// </summary>
+        /// <param name="correct">number of correct answers</param>
+        /// <param name="total">total number of questions</param>
+        /// <returns>percentage as a whole number</returns>
+        private int GetPercentScore(int correct, int total)
+        {
+            if (total == 0)
+            {
+                return 0;
+            }
+
+            return correct * 100 / total;
+        }
+
+        /// <summary>
+        /// convert a percentage score into a letter grade
+        /// </summary>
+        /// <param name="percent">score percentage</param>
+        /// <returns>letter grade A, B, C, D or F</returns>
+        private string GetGrade(int percent)
+        {
+            if (percent >= 90)
+            {
+                return "A";
+            }
+            else if (percent >= 80)
+            {
+                return "B";
+            }
+            else if (percent >= 70)
+            {
+                return "C";
+            }
+            else if (percent >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
         }
 
         /// <summary>
@@ -59,7 +109,12 @@ namespace WinFormsApp2
         private void FinishQuiz()
         {
             btnSubmit.Enabled = false;
-            lblQuestion.Text = $"You got {correct} correct answers out of {questions.GetLength(0)} questions.";
+
+            int total = questions.GetLength(0);
+            int percent = GetPercentScore(correct, total);
+            string grade = GetGrade(percent);
+
+            lblQuestion.Text = $"Score: {correct}/{total} ({percent}%) - Grade: {grade}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -156,6 +211,11 @@ namespace WinFormsApp2
             lblMessage.ForeColor = Color.Black;
             lblQuestion.Text = questions[0, 0];
             btnSubmit.Enabled = true;
+        }
+
+        private void label1_Click_1(object sender, EventArgs e) //score percent label
+        {
+           
         }
     }
 }

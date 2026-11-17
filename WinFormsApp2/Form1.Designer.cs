@@ -34,6 +34,7 @@
             txtAnswer = new TextBox();
             btnReset = new Button();
             btnDarkMode = new Button();
+            prctScore = new Label();
             SuspendLayout();
             // 
             // btnSubmit
@@ -93,11 +94,22 @@
             btnDarkMode.UseVisualStyleBackColor = true;
             btnDarkMode.Click += button1_Click_2;
             // 
+            // prctScore
+            // 
+            prctScore.AutoSize = true;
+            prctScore.Location = new Point(347, 344);
+            prctScore.Name = "prctScore";
+            prctScore.Size = new Size(111, 20);
+            prctScore.TabIndex = 6;
+            prctScore.Text = "Your score is \" \"";
+            prctScore.Click += label1_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(prctScore);
             Controls.Add(btnDarkMode);
             Controls.Add(btnReset);
             Controls.Add(txtAnswer);
@@ -118,5 +130,6 @@
         private TextBox txtAnswer;
         private Button btnReset;
         private Button btnDarkMode;
+        private Label prctScore;
     }
 }
