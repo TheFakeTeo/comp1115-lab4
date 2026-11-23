@@ -34,7 +34,12 @@
             txtAnswer = new TextBox();
             btnReset = new Button();
             btnDarkMode = new Button();
-            prctScore = new Label();
+            lblTimeLimit = new Label();
+            txtTimeLimit = new TextBox();
+            btnSetTimeLimit = new Button();
+            txtQuestionCount = new TextBox();
+            lblQuestionCount = new Label();
+            btnQuestions = new Button();
             SuspendLayout();
             // 
             // btnSubmit
@@ -42,7 +47,7 @@
             btnSubmit.Location = new Point(287, 279);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(94, 29);
-            btnSubmit.TabIndex = 0;
+            btnSubmit.TabIndex = 4;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
             btnSubmit.Click += button1_Click;
@@ -60,18 +65,20 @@
             // lblQuestion
             // 
             lblQuestion.AutoSize = true;
-            lblQuestion.Location = new Point(287, 174);
+            lblQuestion.Location = new Point(225, 171);
             lblQuestion.Name = "lblQuestion";
             lblQuestion.Size = new Size(187, 20);
             lblQuestion.TabIndex = 2;
             lblQuestion.Text = "What's the capital of Japan";
+            lblQuestion.Click += lblQuestion_Click;
             // 
             // txtAnswer
             // 
             txtAnswer.Location = new Point(225, 206);
+            txtAnswer.MaxLength = 11;
             txtAnswer.Name = "txtAnswer";
             txtAnswer.Size = new Size(308, 27);
-            txtAnswer.TabIndex = 3;
+            txtAnswer.TabIndex = 0;
             txtAnswer.TextChanged += txtAnswer_TextChanged;
             // 
             // btnReset
@@ -79,7 +86,7 @@
             btnReset.Location = new Point(387, 279);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(94, 29);
-            btnReset.TabIndex = 4;
+            btnReset.TabIndex = 0;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += button1_Click1;
@@ -94,22 +101,73 @@
             btnDarkMode.UseVisualStyleBackColor = true;
             btnDarkMode.Click += button1_Click_2;
             // 
-            // prctScore
+            // lblTimeLimit
             // 
-            prctScore.AutoSize = true;
-            prctScore.Location = new Point(347, 344);
-            prctScore.Name = "prctScore";
-            prctScore.Size = new Size(111, 20);
-            prctScore.TabIndex = 6;
-            prctScore.Text = "Your score is \" \"";
-            prctScore.Click += label1_Click_1;
+            lblTimeLimit.AutoSize = true;
+            lblTimeLimit.Location = new Point(229, 39);
+            lblTimeLimit.Name = "lblTimeLimit";
+            lblTimeLimit.Size = new Size(79, 20);
+            lblTimeLimit.TabIndex = 6;
+            lblTimeLimit.Text = "Time Limit";
+            lblTimeLimit.Click += label1_Click_2;
+            // 
+            // txtTimeLimit
+            // 
+            txtTimeLimit.Location = new Point(314, 35);
+            txtTimeLimit.Name = "txtTimeLimit";
+            txtTimeLimit.Size = new Size(125, 27);
+            txtTimeLimit.TabIndex = 7;
+            txtTimeLimit.TextChanged += textBox1_TextChanged;
+            // 
+            // btnSetTimeLimit
+            // 
+            btnSetTimeLimit.Location = new Point(445, 35);
+            btnSetTimeLimit.Name = "btnSetTimeLimit";
+            btnSetTimeLimit.Size = new Size(94, 29);
+            btnSetTimeLimit.TabIndex = 8;
+            btnSetTimeLimit.Text = "Set";
+            btnSetTimeLimit.UseVisualStyleBackColor = true;
+            btnSetTimeLimit.Click += btnSetTimeLimit_Click;
+            // 
+            // txtQuestionCount
+            // 
+            txtQuestionCount.Location = new Point(314, 68);
+            txtQuestionCount.Name = "txtQuestionCount";
+            txtQuestionCount.Size = new Size(125, 27);
+            txtQuestionCount.TabIndex = 10;
+            txtQuestionCount.TextChanged += txtQuestionCount_TextChanged;
+            // 
+            // lblQuestionCount
+            // 
+            lblQuestionCount.AutoSize = true;
+            lblQuestionCount.Location = new Point(224, 71);
+            lblQuestionCount.Name = "lblQuestionCount";
+            lblQuestionCount.Size = new Size(84, 20);
+            lblQuestionCount.TabIndex = 11;
+            lblQuestionCount.Text = "Test Length";
+            lblQuestionCount.Click += lblQuestionCount_Click;
+            // 
+            // btnQuestions
+            // 
+            btnQuestions.Location = new Point(448, 71);
+            btnQuestions.Name = "btnQuestions";
+            btnQuestions.Size = new Size(94, 29);
+            btnQuestions.TabIndex = 12;
+            btnQuestions.Text = "Questions";
+            btnQuestions.UseVisualStyleBackColor = true;
+            btnQuestions.Click += btnQuestions_Click_1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(prctScore);
+            Controls.Add(btnQuestions);
+            Controls.Add(lblQuestionCount);
+            Controls.Add(txtQuestionCount);
+            Controls.Add(btnSetTimeLimit);
+            Controls.Add(txtTimeLimit);
+            Controls.Add(lblTimeLimit);
             Controls.Add(btnDarkMode);
             Controls.Add(btnReset);
             Controls.Add(txtAnswer);
@@ -130,6 +188,11 @@
         private TextBox txtAnswer;
         private Button btnReset;
         private Button btnDarkMode;
-        private Label prctScore;
+        private Label lblTimeLimit;
+        private TextBox txtTimeLimit;
+        private Button btnSetTimeLimit;
+        private TextBox txtQuestionCount;
+        private Label lblQuestionCount;
+        private Button btnQuestions;
     }
 }
