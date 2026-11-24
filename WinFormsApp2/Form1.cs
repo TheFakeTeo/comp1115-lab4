@@ -212,12 +212,6 @@ namespace WinFormsApp2
         private void btnRestart_Click(object sender, EventArgs e)
         {
             ShowSetupState();
-            CurrentQuestion = 0;
-            correct = 0;
-            lblMessage.Text = "Restarting the Quiz";
-            lblMessage.ForeColor = Color.Black;
-            lblQuestion.Text = questions[0, 0];
-            btnSubmit.Enabled = true;
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -262,12 +256,6 @@ namespace WinFormsApp2
         private void button1_Click1(object sender, EventArgs e)
         {
             ShowSetupState();
-            CurrentQuestion = 0;
-            correct = 0;
-            lblMessage.Text = "Restarting the Quiz";
-            lblMessage.ForeColor = Color.Black;
-            lblQuestion.Text = questions[0, 0];
-            btnSubmit.Enabled = true;
         }
 
         private void label1_Click_1(object sender, EventArgs e) //score percent label
@@ -358,8 +346,13 @@ namespace WinFormsApp2
 
             //lock the setup stuff while unlocking the quiz stuff
             ShowFeedback($"You gotta at least answer 1 question..", Color.Red);
-            txtQuestionCount.Focus();
-            txtQuestionCount.SelectAll();
+            txtQuestionCount.Enabled = false;
+            btnQuestions.Enabled = false;
+            txtAnswer.Enabled = true;
+            btnSubmit.Enabled = true;
+
+            ShowFeedback("", Color.Black);
+            txtAnswer.Focus();
             return;
 
         }
